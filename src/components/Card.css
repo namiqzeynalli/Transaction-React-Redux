@@ -1,0 +1,47 @@
+.card-container {
+    border-radius: 10px;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    .fromToText {
+        font-size: 18px;
+    }
+    .buttons button {
+        border-radius: 50%;
+        font-weight: 900;
+        cursor: pointer;
+    }
+    .buttons {
+        display: flex;
+        gap: 7px;
+        button:first-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(71, 138, 137);
+        }
+        button:last-child {
+            background-color: red;
+            padding: 4px 9.5px;
+        }
+        button:first-child:hover {
+            background-color: rgb(49, 78, 78);
+        }
+        button:last-child:hover {
+            background-color: rgb(126, 35, 35);
+        }
+    }
+}
+
+.card-container:hover {
+    box-shadow: gray 0px 3px 8px;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

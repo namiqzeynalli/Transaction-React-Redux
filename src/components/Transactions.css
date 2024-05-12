@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  .transactions-list {
+    padding: 30px;
+    background-color: rgb(17, 36, 36);
+    border-radius: 20px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    h3 {
+      font-size: 26px;
+      width: 700px;
+      text-align: center;
+    }
+  }
+  .addBtn {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-size: 16px;
+    background-color: rgb(93, 114, 127);
+    cursor: pointer;
+    font-weight: 700;
+    margin: 30px;
+    transition: all 0.6s ease;
+  }
+  .addBtn:hover {
+    background-color: rgb(56, 62, 77);
+    box-shadow: rgb(206, 206, 206) 0px 3px 8px;
+  }
+}
+
+.loading {
+  font-size: 24px;
+}
