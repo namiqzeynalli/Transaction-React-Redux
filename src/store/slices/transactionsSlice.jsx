@@ -28,7 +28,7 @@ export const addTransaction = createAsyncThunk(
         body: JSON.stringify(transactionData),
       }
     );
-    location.reload();
+    // location.reload();
 
     return await response.json();
   }
@@ -47,7 +47,7 @@ export const editTransaction = createAsyncThunk(
         body: JSON.stringify(transactionData),
       }
     );
-    location.reload();
+    // location.reload();
 
     return await response.json();
   }
@@ -66,8 +66,7 @@ export const deleteTransaction = createAsyncThunk(
         },
       }
     );
-    location.reload();
-    return response;
+    return await response.json();
   }
 );
 
@@ -87,13 +86,18 @@ export const transactionsSlice = createSlice({
       state.loading = false;
       state.error = true;
     });
+    builder.addCase(deleteTransaction.fulfilled, (state, action) => {
+      state.transactions = action.payload;
+    });
+    builder.addCase(addTransaction.fulfilled, (state, action) => {
+      state.transactions = [action.payload, ...state.transactions];
+    })
+    builder.addCase(editTransaction.fulfilled, (state, action) => {
+      state.transactions = state.transactions.filter(transaction => transaction.id !== action.payload.id);
+      state.transactions = [action.payload, ...state.transactions];
+    })
   },
 
-  [deleteTransaction.fulfilled]: (state, action) => {
-    state.transactions = state.transactions.filter(
-      (transaction) => transaction.id !== action.payload
-    );
-  },
 });
 
 export const {} = transactionsSlice.actions;
